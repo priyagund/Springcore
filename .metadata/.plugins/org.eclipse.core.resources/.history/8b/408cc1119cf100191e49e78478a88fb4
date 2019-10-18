@@ -1,0 +1,14 @@
+package com.bridgelabz.loosecoupling;
+
+public class javaCheat implements Cheat
+{
+
+	@Override
+	public void cheat() {
+		
+		System.out.println("java cheating started");
+	}
+
+	
+
+}

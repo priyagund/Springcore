@@ -1,0 +1,15 @@
+package com.bridgelabz.objectinjection;
+
+public class Student
+{
+  MathCheat mathcheat;
+  
+  private int id;
+  private String studentName;
+
+  public Student(MathCheat mathcheat){
+	
+	this.mathcheat=mathcheat;
+	
+}
+}

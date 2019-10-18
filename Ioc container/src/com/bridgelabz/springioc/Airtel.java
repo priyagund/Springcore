@@ -1,0 +1,18 @@
+package com.bridgelabz.springioc;
+
+public class Airtel implements Sim
+{
+
+	@Override
+	public void calling() {
+		System.out.println("calling using airtel sim");
+		
+	}
+
+	@Override
+	public void data() {
+		System.out.println("brousing internet using airtel sim");
+		
+	}
+ 
+}

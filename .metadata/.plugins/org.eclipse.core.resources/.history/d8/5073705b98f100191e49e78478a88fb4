@@ -1,0 +1,12 @@
+package com.bridgelabz.loosecoupling;
+
+public class mathCheat implements Cheat
+{
+
+	@Override
+	public void cheating() {
+		System.out.println("math cheating started");
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package bridgelabz.springioc;
+
+public class Mobile 
+{
+ public static void main(String[] args) 
+{
+	ApllicationContext context=new ClassPathXmlApplicationContext("bean.xml");
+	Sim sim=context.getBean("airtel"+ Airtel.class);
+	 sim.calling();
+	 sim.data();
+}
+}

@@ -1,0 +1,18 @@
+package com.bridgelabz.objectinjection;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Exam
+{
+public static void main(String[] args) 
+{
+	ApplicationContext context=new ClassPathXmlApplicationContext("beanobj.xml");
+	System.out.println("beanobj.xml loaded");
+	Student student=context.getBean("student",Student.class);
+	 student.cheating();
+	 
+	AnotherStudent student1=context.getBean("anotherstudent",AnotherStudent.class);
+	student1.cheating();
+}
+}

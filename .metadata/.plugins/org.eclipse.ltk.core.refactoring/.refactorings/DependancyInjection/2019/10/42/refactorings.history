@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Student.java&apos; to &apos;DependancyInjection-1/src/main/java/com.bridgelabz.dependancyinjection&apos;&#x0A;- Original project: &apos;DependancyInjection&apos;&#x0A;- Destination element: &apos;DependancyInjection-1/src/main/java/com.bridgelabz.dependancyinjection&apos;&#x0A;- Original element: &apos;com.bridgelabz.setterinjection.Student.java&apos;" description="Copy compilation unit" destination="=DependancyInjection-1/src\/main\/java&lt;com.bridgelabz.dependancyinjection" element1="/src\/main\/java&lt;com.bridgelabz.setterinjection{Student.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1571313036759" units="1" version="1.0"/>
+</session>
