@@ -4,6 +4,12 @@ public class Human
 {
   private Heart heart;
 
+public Human(Heart heart) {
+	
+	this.heart = heart;
+	System.out.println("human constructer call as heart as argument");
+}
+
 public void setHear(Heart heart) {
 	this.heart = heart;
 }
