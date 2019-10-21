@@ -8,6 +8,7 @@ public class Mobile
  public static void main(String[] args) 
 {
 	ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
+   System.out.println("configure loaded");
 	Sim sim=context.getBean("sim", Airtel.class);
 	 sim.calling();
 	 sim.data();

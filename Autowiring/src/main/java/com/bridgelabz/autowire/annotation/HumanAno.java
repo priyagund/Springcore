@@ -10,9 +10,9 @@ public class HumanAno
    
   public HumanAno () 
   {
-	  
-  }
   
+  }
+  //@Autowired
 public HumanAno(Heart heart) {
 	
 	this.heart = heart;
