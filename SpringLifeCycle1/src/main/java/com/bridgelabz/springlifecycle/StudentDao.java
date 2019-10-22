@@ -10,32 +10,17 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class StudentDao {
-	private String Driver;
+	private String driver;
 	private String userName;
 	private String password;
 	private String url;
 
-	private Connection con;
-	
+	static Connection con;
 
-	public Connection getCon() {
-		return con;
-	}
 
-	public void setCon(Connection con) {
-		this.con = con;
-	}
-
-	public String getDriver() {
-		System.out.println("inside setter");
-		return Driver;
-	}
-
-	public void setDriver(String driver) {
-		Driver = driver;
-	}
 
 	public String getUserName() {
 		return userName;
@@ -65,13 +50,9 @@ public class StudentDao {
 	@PostConstruct
 	public void init() throws ClassNotFoundException, SQLException {
 		System.out.println("inside init method");
-		createDbconnection();
-	}
-
-// creating connection
-	public void createDbconnection() throws SQLException, ClassNotFoundException {
-		Class.forName("Driver");
+		Class.forName(driver);
 		con = DriverManager.getConnection(url, userName, password);
+		
 	}
 
 	public void selectAllRows() throws SQLException, ClassNotFoundException {
@@ -79,18 +60,20 @@ public class StudentDao {
 		ResultSet rs = st.executeQuery("SELECT * FROM college.student");
 
 		while (rs.next()) {
-			int StudentId = rs.getInt(1);
-			String StudentName = rs.getString(2);
-			String StudentAdd = rs.getString(3);
-			System.out.println(StudentId + " " + StudentName + " " + StudentAdd + " ");
+			while (rs.next()) {
+				System.out.println("name of student is " + rs.getInt(1));
+				System.out.println("Id of student is " + rs.getString(2));
+				System.out.println("food of student is " + rs.getString(3));
+				System.out.println();
+			}
 		}
 
 	}
 
-	public void deleteStudentRecord(int studentid) throws ClassNotFoundException, SQLException {
+	public void deleteStudentRecord() throws ClassNotFoundException, SQLException {
 		Scanner sc = new Scanner(System.in);
 
-		String query = "delete from mess where id=?";
+		String query = "delete from student where id=?";
 		PreparedStatement st = con.prepareStatement(query);
 		System.out.println("enter id of student to be deleted");
 		st.setInt(1, sc.nextInt());
@@ -99,13 +82,37 @@ public class StudentDao {
 
 	}
 	
-	//for destroy object
-
+	public void insertStudent() throws SQLException
+	{
+		Scanner sc=new Scanner(System.in);
+		String query="insert into student values(?,?,?)";
+		PreparedStatement pst=con.prepareStatement(query);
+		System.out.println("enter id");
+		int id=sc.nextInt();
+		pst.setInt(1, id);
+		System.out.println("enter name");
+		String name=sc.next();
+		pst.setString(2, name);
+		System.out.println("enter address");
+		String address=sc.next();
+		pst.setString(3, address);
+		pst.executeUpdate();
+		System.out.println("student data inserted successfully");
+	}
+	
+	//for distroy
+	@PreDestroy
 	public void distroy() throws SQLException
 	{
-		
-		System.out.println("inside distroy method");
-		con.close();
-		
+    	System.out.println("inside destroy method");
+    	con.close();
+	}
+
+	public String getDriver() {
+		return driver;
+	}
+
+	public void setDriver(String driver) {
+		this.driver = driver;
 	}
 }
