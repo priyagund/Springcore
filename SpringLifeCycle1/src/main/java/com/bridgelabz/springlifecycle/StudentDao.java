@@ -1,6 +1,5 @@
 package com.bridgelabz.springlifecycle;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,8 +18,6 @@ public class StudentDao {
 	private String url;
 
 	static Connection con;
-
-
 
 	public String getUserName() {
 		return userName;
@@ -46,15 +43,29 @@ public class StudentDao {
 		this.url = url;
 	}
 
+	public String getDriver() {
+		return driver;
+	}
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+
 // creating init method
 	@PostConstruct
 	public void init() throws ClassNotFoundException, SQLException {
 		System.out.println("inside init method");
 		Class.forName(driver);
 		con = DriverManager.getConnection(url, userName, password);
-		
+
 	}
 
+	/**
+	 * Purpose : display student data from database
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public void selectAllRows() throws SQLException, ClassNotFoundException {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery("SELECT * FROM college.student");
@@ -70,6 +81,12 @@ public class StudentDao {
 
 	}
 
+	/**
+	 * Purpose :delete student data from database
+	 * 
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void deleteStudentRecord() throws ClassNotFoundException, SQLException {
 		Scanner sc = new Scanner(System.in);
 
@@ -81,38 +98,32 @@ public class StudentDao {
 		System.out.println("student deleted successfully");
 
 	}
-	
-	public void insertStudent() throws SQLException
-	{
-		Scanner sc=new Scanner(System.in);
-		String query="insert into student values(?,?,?)";
-		PreparedStatement pst=con.prepareStatement(query);
+/**
+ * Purpose: insert student data into database
+ * @throws SQLException
+ */
+	public void insertStudent() throws SQLException {
+		Scanner sc = new Scanner(System.in);
+		String query = "insert into student values(?,?,?)";
+		PreparedStatement pst = con.prepareStatement(query);
 		System.out.println("enter id");
-		int id=sc.nextInt();
+		int id = sc.nextInt();
 		pst.setInt(1, id);
 		System.out.println("enter name");
-		String name=sc.next();
+		String name = sc.next();
 		pst.setString(2, name);
 		System.out.println("enter address");
-		String address=sc.next();
+		String address = sc.next();
 		pst.setString(3, address);
 		pst.executeUpdate();
 		System.out.println("student data inserted successfully");
 	}
-	
-	//for distroy
+
+	// for distroy
 	@PreDestroy
-	public void distroy() throws SQLException
-	{
-    	System.out.println("inside destroy method");
-    	con.close();
+	public void distroy() throws SQLException {
+		System.out.println("inside destroy method");
+		con.close();
 	}
 
-	public String getDriver() {
-		return driver;
-	}
-
-	public void setDriver(String driver) {
-		this.driver = driver;
-	}
 }

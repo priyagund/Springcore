@@ -1,3 +1,19 @@
+/******************************************************************************
+*  Purpose:  Program is written for autowiring using annotation
+*
+*  @author priyanka gund
+*  @version 1.0
+*  @since   23-10-2019
+*
+******************************************************************************/
+/******************************************************************************
+*  Purpose:  Program is written for autowiring using annotation
+*
+*  @author priyanka gund
+*  @version 1.0
+*  @since   23-10-2019
+*
+******************************************************************************/
 package com.bridgelabz.autowire.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +24,7 @@ public class HumanAno
   private Heart heart;
   // creating default consturcter
    
-  public HumanAno () 
+ /* public HumanAno () 
   {
   
   }
@@ -18,7 +34,7 @@ public HumanAno(Heart heart) {
 	this.heart = heart;
 	System.out.println("human constructer call as heart as argument");
 }
-
+*/
   @Autowired
   @Qualifier("humanheart")
 public void setHeart(Heart heart) {

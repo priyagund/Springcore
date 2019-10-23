@@ -14,7 +14,7 @@ public class College
 	private String collegeName;
 	
 	@Autowired 
-	@Qualifier("scienceTeacher")
+	@Qualifier("scienceTeacher")  //if more than one object is present in container call perticular object
 	private Teacher teacher;
 	
 	@Autowired

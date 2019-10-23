@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import com.bridgelabz.component.Principal;
-@Configuration
+@Configuration 
 @ComponentScan(basePackages="com.bridgelabz.beanannotation")
 @PropertySource("classpath:collegeName.properties")
 public class ConfigClass

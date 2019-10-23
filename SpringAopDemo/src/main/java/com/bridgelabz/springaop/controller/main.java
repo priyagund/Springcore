@@ -11,8 +11,9 @@ public class main
  {
 	 ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
 	 ShapeService shape=context.getBean("shapeservice",ShapeService.class);
-	System.out.println("Traingle Name"+" "+shape.getTriangel().getName());
-	System.out.println("circle name"+" "+shape.getCircle().getName());
+	//System.out.println("triangel name is:"+" "+shape.getTriangel().getName());
+	//System.out.println("circle name is:"+" "+shape.getCircle().getName());
+	 shape.getCircle().setName("dummy name");
 	 
  }
 }

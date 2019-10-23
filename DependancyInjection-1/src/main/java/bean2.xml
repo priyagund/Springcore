@@ -10,7 +10,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
      </bean> 
   
     
- <bean id="studentcon" class="com.bridgelabz.constructuredependancy.StudentCon">
+ <bean id="studentconstruct" class="com.bridgelabz.constructuredependancy.StudentCon">
     <constructor-arg name="studentName" value="priya"/>
     <constructor-arg name="id" value="1"/>
      </bean> 
